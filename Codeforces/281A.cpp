@@ -1,5 +1,5 @@
-// date
-// problem
+// July 11, 2025
+// Codeforces problem 281A - Word Capitalization	
 
 #include <iostream>
 #include <vector>
@@ -19,12 +19,14 @@
 using ll = long long;
 
 using namespace std;
-
+string s;
 
 int main() {    
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    cin>>s;
+    s[0] = toupper(s[0]);
+    cout<<s<<endl;
     return 0;
 }
 
