@@ -1,21 +1,7 @@
 // date
 // problem
 
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <cctype>
-#include <ctime>
-#include <string>
-#include <vector>
-#include <tuple>
-#include <algorithm>
-#include <cstdio>
-#include <numeric>
-#include <map>
-#include <unordered_map>
-#include <sstream>
-#include <set>
+#include <bits/stdc++.h>
 using ll = long long;
 
 using namespace std;
