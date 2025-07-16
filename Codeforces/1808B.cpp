@@ -1,4 +1,4 @@
-// July 14, 2025
+// July 15, 2025
 // Codeforces problem 1808B - Playing in a Casino
 
 #include <bits/stdc++.h>
@@ -15,18 +15,25 @@ int main() {
     cin>>t;
     for (int i=0; i<t; i++) {
         cin>>n>>m;
-        int ans=0;
-        vector<vector<int>> deck(n, vector<int>(m, -1));
+        vector<vector<int>> deck(n, vector<int>(m));
         for (int j=0; j<n; j++) {
             for (int k=0; k<m; k++){
                 cin>>deck[j][k];
             }
         }
-        for (int x1=0; x1<n; x1++) {
-            for (int x2=x1+1; x2<n; x2++) {
-                for (int y=0; y<m; y++) {
-                    ans += abs(deck[x2][y]-deck[x1][y]);
-                }
+        long long ans=0;
+        for (int i=0; i<m; i++) {
+            vector<long long> temp;
+            long long sum=0;
+            for (int j=0; j<n; j++) {
+                temp.push_back(deck[j][i]);
+                sum += deck[j][i];
+            }
+            long long cur=0;
+            sort(temp.begin(), temp.end());
+            for (int j=0; j<n; j++) {
+                cur += temp[j];
+                ans += llabs(sum-cur - (n-1-j)*temp[j]);
             }
         }
         cout << ans << endl;
