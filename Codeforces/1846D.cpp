@@ -1,5 +1,5 @@
 // July 16, 2025
-// problem
+// Codeforces problem 1846D - Rudolph and Christmas Tree	
 
 #include <bits/stdc++.h>
 using ll = long long;
@@ -21,13 +21,17 @@ int main() {
         }
         double ans=0.0;
         for (int j=0;j<n;j++){
-            if(j!=n-1 && branches[j]!=branches[j+1]+1) {
-                ans += (d*h/2.0);
+            double area=0.5*d*h;
+            if(j>0 && branches[j]<branches[j-1]+h) {
+                int overlap_height = branches[j-1] + h - branches[j];
+                double overlap_base = (1.0 * d * overlap_height) / (h*1.0);
+                double overlap_area = 0.5 * overlap_base * overlap_height;
+                ans += area - overlap_area;
             } else {
-                ans += (d*h/2.0/4.0)+(d*h/2.0);
+                ans += area;
             }
         }
-        cout<<ans<<endl;
+        cout<<setprecision(10)<<ans<<endl;
     }
     return 0;
 }
